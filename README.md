@@ -1,5 +1,5 @@
 # 2015 PUG - Flask Data Visualization
-## Goddard Python Users Group Meeting 
+## Goddard Python Users Group Meeting
 ## Oct. 6 - Building 34, Room W120B, 10:00AM - 11:00AM
 
 Python, Flask, and Web-visualizations
@@ -28,5 +28,3 @@ An alternative would be to use `wget`:
     cd 2015-PUG-flask-data-vis
     pip install requirements.txt
     python run.py
-
-

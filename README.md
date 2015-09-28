@@ -11,7 +11,7 @@ This guide outlines the steps we took in our **October 6th, 2015 Meetup** to wri
 To follow along, please find my [slides here](http://jakebrinkmann.github.io/2015-PUG-flask-data-vis).  
 A live version of the final website: [http://jakebrinkmann.pythonanywhere.com/](http://jakebrinkmann.pythonanywhere.com/)
 
-![Screenshot][Screenshot.png]
+![Screenshot](Screenshot.png)
 
 ## Install
 

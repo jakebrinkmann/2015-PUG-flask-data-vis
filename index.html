@@ -232,9 +232,61 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2015-PUG---Flask-Data-Visualization">2015 PUG - Flask Data Visualization<a class="anchor-link" href="#2015-PUG---Flask-Data-Visualization">&#182;</a></h1><h2 id="Python,-Flask-and-Web-visualizations">Python, Flask and Web-visualizations<a class="anchor-link" href="#Python,-Flask-and-Web-visualizations">&#182;</a></h2><h3 id="GSFC-PUG---OCT-2015">GSFC PUG - OCT 2015<a class="anchor-link" href="#GSFC-PUG---OCT-2015">&#182;</a></h3><p>Welcome, <a href="https://lists.nasa.gov/mailman/listinfo/gsfc-python-users">Goddard Python User's Group</a>!</p>
-<p>This guide outlines the steps we took in our <strong>October 2015 Meetup</strong> to write a web application, for data visualization, in <a href="http://python.org/">Python</a> using the <a href="http://flask.pocoo.org/">Flask</a> microframework.</p>
-<p>Let's get started!</p>
+<h1 id="Python,-Flask-and-Web-visualizations">Python, Flask and Web-visualizations<a class="anchor-link" href="#Python,-Flask-and-Web-visualizations">&#182;</a></h1><h2 id="GSFC-PUG---OCT-2015">GSFC PUG - OCT 2015<a class="anchor-link" href="#GSFC-PUG---OCT-2015">&#182;</a></h2><p>Welcome, <a href="https://lists.nasa.gov/mailman/listinfo/gsfc-python-users">Goddard Python User's Group</a>!</p>
+<p>This guide outlines the steps we took in our <strong>October 6th, 2015 Meetup</strong> to write a web application, for data visualization, in <a href="http://python.org/">Python</a> using the <a href="http://flask.pocoo.org/">Flask</a> microframework.</p>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>My research over the past year to develop a simple application for viewing the multitude of telemetry sensors throughout the MODIS instrument</p>
+<p>I needed something which was quick to start up, easy to maintain, and update programaticaly.</p>
+<p>What I decided was I thought a web app would be the coolest, with the ultimate goal of being able to browse the data on my cell phone.</p>
+<p>My journey took me into the wonderful worlds of:</p>
+<ul>
+<li>Front-end (the "Client")</li>
+<li><ul>
+<li>Responsive Design (User Interface "UI" &amp; User Expeirience "UX")</li>
+</ul>
+</li>
+<li><ul>
+<li>Javascript (AJAX, JQUERY)</li>
+</ul>
+</li>
+<li>Back-end (the "Server")</li>
+<li><ul>
+<li>Apache &amp; WSGI (Web-server Gateway Interfaces)</li>
+</ul>
+</li>
+<li><ul>
+<li>RESTful API's </li>
+</ul>
+</li>
+<li><ul>
+<li>Databases</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What <code>flask</code> can take care of is the WSGI. And, this turns out to be the most useful part. Every time a user clicks in the client, <code>flask</code> will bring you back into the python program on the server side.</p>
+<p>This means, if a user asks for a yearly average dataset filtered by another column... you can use <code>pandas</code> to provide the sampling, and <code>flask</code> again helps with sending the data back to the user. Anything you can do in python, you are suddenly able to interact with via the <code>flask</code> module.</p>
+<p>There are also <code>flask</code> add-ons, which handle even more amazing tasks, like local language translataion, thwarting hackers, and creating beautiful barebones websites in seconds.</p>
+<p>My goal is to convince anyone out there who is weary of diving in to flask, to dive in head first...</p>
+<p>So, Let's get started!</p>
 
 </div>
 </div>
@@ -253,10 +305,43 @@ div.output_prompt {
 <li>flask</li>
 <li>An up-to-date modern browser</li>
 </ul>
+<p>I will use other packages along the way, but these are really all you need</p>
 
 </div>
 </div>
-</div></section>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Follow-Along">Follow Along<a class="anchor-link" href="#Follow-Along">&#182;</a></h1>
+<pre><code>git clone https://github.com/jakebrinkmann/2015-PUG-flask-data-vis.git 
+cd 2015-PUG-flask-data-vis
+git checkout version-0.1
+
+</code></pre>
+<p>Each branch has tags associated to help guide the developement</p>
+
+<pre><code>git tags -l
+git checkout tags/v0.1.0</code></pre>
+
+</div>
+</div>
+</div><div style=display:none>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="STARTUP-=====================================">STARTUP =====================================<a class="anchor-link" href="#STARTUP-=====================================">&#182;</a></h1>
+</div>
+</div>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -324,7 +409,59 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Route-Handling">Route Handling<a class="anchor-link" href="#Route-Handling">&#182;</a></h1><p>Flask can also handle more complex redirects, and request routes</p>
+<h1 id="Debugging">Debugging<a class="anchor-link" href="#Debugging">&#182;</a></h1>
+<pre><code>git checkout version-0.2</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">create_error</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">+</span> <span class="s">&#39;a&#39;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div style=display:none>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="BASICS-======================================">BASICS ======================================<a class="anchor-link" href="#BASICS-======================================">&#182;</a></h1>
+</div>
+</div>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Route-Handling">Route Handling<a class="anchor-link" href="#Route-Handling">&#182;</a></h1>
+<pre><code>git checkout version-0.3
+
+</code></pre>
+<p>Flask can also handle more complex redirects, and request routes</p>
 
 </div>
 </div>
@@ -363,7 +500,9 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Templates">Templates<a class="anchor-link" href="#Templates">&#182;</a></h1>
+<h1 id="App-Layout">App Layout<a class="anchor-link" href="#App-Layout">&#182;</a></h1>
+<pre><code>git checkout version-0.4</code></pre>
+
 </div>
 </div>
 </div>
@@ -372,7 +511,98 @@ div.output_prompt {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
+<div class=" highlight hl-ipython2"><pre><span class="o">!</span> mkdir app
+<span class="o">!</span> mkdir app/static
+<span class="o">!</span> mkdir app/templates
+<span class="o">!</span> mkdir tmp
+<span class="o">!</span> touch app/__init__.py
+<span class="o">!</span> touch app/views.py
+<span class="o">!</span> touch run.py
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>app/__init__.py</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">views</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>app/views.py</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/index&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>run.py</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#!conda/bin/python</span>
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -388,7 +618,225 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Templates">Templates<a class="anchor-link" href="#Templates">&#182;</a></h1>
+<pre><code>git checkout version-0.5</code></pre>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/index&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;nickname&#39;</span><span class="p">:</span> <span class="s">&#39;Dr. Robert&#39;</span><span class="p">}</span>  <span class="c"># fake user</span>
+    <span class="k">return</span> <span class="s">&#39;&#39;&#39;</span>
+<span class="s">&lt;html&gt;</span>
+<span class="s">  &lt;head&gt;</span>
+<span class="s">    &lt;title&gt;Home Page&lt;/title&gt;</span>
+<span class="s">  &lt;/head&gt;</span>
+<span class="s">  &lt;body&gt;</span>
+<span class="s">    &lt;h1&gt;Hello, &#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;nickname&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;&#39;&#39;&lt;/h1&gt;</span>
+<span class="s">  &lt;/body&gt;</span>
+<span class="s">&lt;/html&gt;</span>
+<span class="s">&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Jinja2-Templates">Jinja2 Templates<a class="anchor-link" href="#Jinja2-Templates">&#182;</a></h1><p>To keep the logic of your application separate from the layout or presentation of your web pages things would be much better organized</p>
+<p>Jinja Templates are great, and the syntax is fairly straight forward. 
+It is used internally by both:</p>
+<ul>
+<li>flask</li>
+<li>Jekyll (ruby)</li>
+</ul>
+<p>Useful for flask, but also useful for other HTML tasks, like sending emails with preset formating</p>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>app/templates/index.html</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">title</span> <span class="p">}}</span> <span class="o">-</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hello</span><span class="p">,</span> <span class="p">{{</span> <span class="n">user</span><span class="o">.</span><span class="n">nickname</span> <span class="p">}}</span><span class="o">!</span>&lt;/h1&gt;
+  <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>app/views.py</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/index&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;nickname&#39;</span><span class="p">:</span> <span class="s">&#39;Dr. Robert&#39;</span><span class="p">}</span>  <span class="c"># fake user</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="s">&#39;Home&#39;</span><span class="p">,</span>
+                           <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Control statements</p>
+
+<pre><code>app/templates/index.html</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">title</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">title</span> <span class="p">}}</span> <span class="o">-</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Welcome</span> <span class="n">to</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+  <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hello</span><span class="p">,</span> <span class="p">{{</span> <span class="n">user</span><span class="o">.</span><span class="n">nickname</span> <span class="p">}}</span><span class="o">!</span>&lt;/h1&gt;
+  <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Loops, too</p>
+
+<pre><code>app/templates/index.html</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">title</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">title</span> <span class="p">}}</span> <span class="o">-</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Welcome</span> <span class="n">to</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+  <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hi</span><span class="p">,</span> <span class="p">{{</span> <span class="n">user</span><span class="o">.</span><span class="n">nickname</span> <span class="p">}}</span><span class="o">!</span>&lt;/h1&gt;
+    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">nickname</span> <span class="p">}}</span> <span class="n">says</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">body</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+  <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div style=display:none>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="ADVANCED-=====================================">ADVANCED =====================================<a class="anchor-link" href="#ADVANCED-=====================================">&#182;</a></h1>
+</div>
+</div>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Inputs-&amp;-Forms">Inputs &amp; Forms<a class="anchor-link" href="#Inputs-&amp;-Forms">&#182;</a></h1>
+<pre><code>git checkout version-0.6</code></pre>
+
 </div>
 </div>
 </div>
@@ -404,7 +852,19 @@ div.output_prompt {
 </div>
 </div>
 
-</div></section>
+</div><div style=display:none>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -454,7 +914,19 @@ div.output_prompt {
 </div>
 </div>
 
-</div></section>
+</div><div style=display:none>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="MASTERY-=====================================">MASTERY =====================================<a class="anchor-link" href="#MASTERY-=====================================">&#182;</a></h1>
+</div>
+</div>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -513,23 +985,56 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Depolyment">Depolyment<a class="anchor-link" href="#Depolyment">&#182;</a></h1>
+<h1 id="Depolyment">Depolyment<a class="anchor-link" href="#Depolyment">&#182;</a></h1><p>Couple of options for deployment</p>
+<ul>
+<li>In-App</li>
+<li>pythonanywhere, heroku</li>
+<li>Apache2, nginx, RPi server, etc.</li>
+</ul>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="In-App">In-App<a class="anchor-link" href="#In-App">&#182;</a></h1>
+<pre><code>app.run(port='0.0.0.0', debug=False)</code></pre>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Setting-up-Apache">Setting up Apache<a class="anchor-link" href="#Setting-up-Apache">&#182;</a></h1>
+<pre><code>FcgidIPCDir /tmp
+AddHandler fcgid-script .fcgi
+&lt;VirtualHost *:80&gt;
+    DocumentRoot /home/apps/datavis/app/static
+    Alias /static /home/apps/datavis/app/static
+    ScriptAlias / /home/apps/datavis/runp-mysql.fcgi/
+&lt;/VirtualHost&gt;</code></pre>
 
-</div></section>
+</div>
+</div>
+</div><div style=display:none>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="CONCLUSIONS-==================================">CONCLUSIONS ==================================<a class="anchor-link" href="#CONCLUSIONS-==================================">&#182;</a></h1>
+</div>
+</div>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -542,18 +1047,58 @@ div.output_prompt {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Flask">Flask<a class="anchor-link" href="#Flask">&#182;</a></h2><ul>
+<li>Using loops, other Jinja controls</li>
+<li>Keeping logic seperate from UI/UX</li>
+<li>Pre-process &amp; ready the data</li>
+</ul>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Javascript">Javascript<a class="anchor-link" href="#Javascript">&#182;</a></h2><ul>
+<li>Javascript is complied language, and is getting faster</li>
+<li>Imports can overwrite, or depend on, other imports</li>
+<li></li>
+</ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Website">Website<a class="anchor-link" href="#Website">&#182;</a></h2><ul>
+<li>FLask is best for when you need the server backend</li>
+<li>Jekyll for static webpages</li>
+<li>Drupal for multi-user content</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><p><a href="http://flask.pocoo.org/docs/0.10/quickstart/">flask docs</a></p>
+<p><a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">The Flask Mega-Tutorial</a></p>
+
+</div>
+</div>
 </div></section>
     </section>
 </div>

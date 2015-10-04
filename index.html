@@ -239,41 +239,79 @@ div.output_prompt {
 
 </div>
 </div>
-</div></section><section>
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>My research over the past year to develop a simple application for viewing the multitude of telemetry sensors throughout the MODIS instrument</p>
-<p>I needed something which was quick to start up, easy to maintain, and update programaticaly.</p>
-<p>What I decided was I thought a web app would be the coolest, with the ultimate goal of being able to browse the data on my cell phone.</p>
-<p>My journey took me into the wonderful worlds of:</p>
 <ul>
-<li>Front-end (the "Client")</li>
-<li><ul>
-<li>Responsive Design (User Interface "UI" &amp; User Expeirience "UX")</li>
+<li><h3>Setup</h3><ul>
+<li>Hello World</li>
+<li>URL Routing</li>
+<li>Templates</li>
 </ul>
 </li>
-<li><ul>
-<li>Javascript (AJAX, JQUERY)</li>
+<li><h3>User Inputs</h3><ul>
+<li>URL Variable Inputs</li>
+<li>Forms (Flask-WTForms)</li>
 </ul>
 </li>
-<li>Back-end (the "Server")</li>
-<li><ul>
-<li>Apache &amp; WSGI (Web-server Gateway Interfaces)</li>
+<li><h3>Data Display</h3><ul>
+<li>Static (matplotlib, ggplot, seaborn)</li>
+<li>Interactive (bokeh, mpld3, plotly)</li>
 </ul>
 </li>
-<li><ul>
-<li>RESTful API's </li>
+<li><h3>Upgaded Interface</h3><ul>
+<li>Layouts (Bootstrap, Foundation)</li>
+<li>Document Object Model (jQuery)</li>
+<li>Call backs (AJAX, Databases)</li>
+<li>Custom visualizations (d3.js, nvd3)</li>
 </ul>
 </li>
-<li><ul>
-<li>Databases</li>
+</ul>
+
+</div>
+</div>
+</div><aside class="notes">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Setup, User Inputs, and Static plotting all deal with the "Backend", or Server<ul>
+<li>The Server is where flask is very handy</li>
+</ul>
+</li>
+<li>Interactive display with python packages begins the "Frontend", or Client<ul>
+<li>The Client is really where JavaScript is more useful</li>
 </ul>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+    </aside></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>What is flask?<ul>
+<li>Flask acts as a simple web server</li>
+<li>Flask takes care of the "Web Server Gateway Interface" (WSGI)</li>
+</ul>
+</li>
+</ul>
+<p><img src="imgs/wsgi_example.png"></img></p>
 
 </div>
 </div>
@@ -284,11 +322,9 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>What <code>flask</code> can take care of is the WSGI. And, this turns out to be the most useful part. Every time a user clicks in the client, <code>flask</code> will bring you back into the python program on the server side.</p>
-<p>This means, if a user asks for a yearly average dataset filtered by another column... you can use <code>pandas</code> to provide the sampling, and <code>flask</code> again helps with sending the data back to the user. Anything you can do in python, you are suddenly able to interact with via the <code>flask</code> module.</p>
+<p>This turns out to be the most useful part. When a user makes a request in the client, <code>flask</code> will bring you back into the python program on the server side.</p>
+<p>This means, if a user asks for a yearly average dataset... you can use <code>pandas</code> to provide the sampling, and <code>flask</code> again helps with sending the data back to the user. Anything you can do in python, you are suddenly able to interact with via the <code>flask</code> module.</p>
 <p>There are also <code>flask</code> add-ons, which handle even more amazing tasks, like local language translataion, thwarting hackers, and creating beautiful barebones websites in seconds.</p>
-<p>My goal is to convince anyone out there who is weary of diving in to flask, to dive in head first...</p>
-<p>So, Let's get started!</p>
 
 </div>
 </div>
@@ -356,7 +392,7 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="7">
+</div><div class="fragment" data-fragment-index="9">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -380,7 +416,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="8">
+    </div></section><section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -403,8 +439,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 </div>
 
-</div>
-    </div></section><section>
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -416,7 +451,7 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="10">
+</div><div class="fragment" data-fragment-index="12">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -469,7 +504,7 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="13">
+</div><div class="fragment" data-fragment-index="15">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -508,7 +543,7 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="15">
+</div><div class="fragment" data-fragment-index="17">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -529,7 +564,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="16">
+    </div><div class="fragment" data-fragment-index="18">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -542,7 +577,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="16">
+    </div><div class="fragment" data-fragment-index="18">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -560,7 +595,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="18">
+        </div><div class="fragment" data-fragment-index="20">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -573,7 +608,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="18">
+    </div><div class="fragment" data-fragment-index="20">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -593,7 +628,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="20">
+        </div><div class="fragment" data-fragment-index="22">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -606,7 +641,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="20">
+    </div><div class="fragment" data-fragment-index="22">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -635,7 +670,7 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="23">
+</div><div class="fragment" data-fragment-index="25">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -695,7 +730,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="23">
+</div><div class="fragment" data-fragment-index="25">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -717,7 +752,7 @@ It is used internally by both:</p>
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="27">
+        </div><div class="fragment" data-fragment-index="29">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -730,7 +765,7 @@ It is used internally by both:</p>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="27">
+    </div><div class="fragment" data-fragment-index="29">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -754,7 +789,7 @@ It is used internally by both:</p>
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="29">
+        </div><div class="fragment" data-fragment-index="31">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -768,7 +803,7 @@ It is used internally by both:</p>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="29">
+    </div><div class="fragment" data-fragment-index="31">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -794,7 +829,7 @@ It is used internally by both:</p>
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="31">
+        </div><div class="fragment" data-fragment-index="33">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -808,7 +843,7 @@ It is used internally by both:</p>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="31">
+    </div><div class="fragment" data-fragment-index="33">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -863,7 +898,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="35">
+</div><div class="fragment" data-fragment-index="37">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -881,7 +916,7 @@ It is used internally by both:</p>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="36">
+    </div><div class="fragment" data-fragment-index="38">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -915,7 +950,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="38">
+</div><div class="fragment" data-fragment-index="40">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -952,7 +987,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="38">
+</div><div class="fragment" data-fragment-index="40">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1011,7 +1046,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="43">
+</div><div class="fragment" data-fragment-index="45">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1063,7 +1098,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="45">
+</div><div class="fragment" data-fragment-index="47">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1090,7 +1125,7 @@ It is used internally by both:</p>
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="46">
+    </div><div class="fragment" data-fragment-index="48">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1148,7 +1183,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="49">
+</div><div class="fragment" data-fragment-index="51">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1185,7 +1220,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="51">
+</div><div class="fragment" data-fragment-index="53">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1225,7 +1260,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="53">
+</div><div class="fragment" data-fragment-index="55">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1238,7 +1273,7 @@ It is used internally by both:</p>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="54">
+    </div><div class="fragment" data-fragment-index="56">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1252,7 +1287,7 @@ It is used internally by both:</p>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="55">
+    </div><div class="fragment" data-fragment-index="57">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1296,7 +1331,7 @@ AddHandler fcgid-script .fcgi
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="58">
+</div><div class="fragment" data-fragment-index="60">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1312,7 +1347,7 @@ AddHandler fcgid-script .fcgi
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="59">
+    </div><div class="fragment" data-fragment-index="61">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1332,7 +1367,7 @@ AddHandler fcgid-script .fcgi
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="60">
+    </div><div class="fragment" data-fragment-index="62">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">

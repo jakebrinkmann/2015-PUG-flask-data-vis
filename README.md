@@ -1,9 +1,10 @@
 # 2015 PUG - Flask Data Visualization
-## Goddard Python Users Group Meeting - Oct. 6 - Building 34, Room W120B, 10:00AM - 11:00AM
+## Goddard Python Users Group Meeting 
+## Oct. 6 - Building 34, Room W120B, 10:00AM - 11:00AM
 
 Python, Flask, and Web-visualizations
 
-## [Talk Slides](http://jakebrinkmann.github.io/2015-PUG-flask-data-vis)
+<h2>[Talk Slides](http://jakebrinkmann.github.io/2015-PUG-flask-data-vis)</h2>
 
 Welcome, [Goddard Python User's Group](https://lists.nasa.gov/mailman/listinfo/gsfc-python-users)!  
 

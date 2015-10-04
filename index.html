@@ -15,8 +15,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <!-- General and theme style sheets -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.5.0/css/reveal.css">
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.5.0/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.6.2/css/reveal.css">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.6.2/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -24,14 +24,14 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'http://cdn.jsdelivr.net/reveal.js/2.5.0/css/print/pdf.css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/2.6.2/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 
 </script>
 
 <!--[if lt IE 9]>
-<script src="http://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/html5shiv.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- Get Font-awesome from cdn -->
@@ -220,6 +220,8 @@ div.output_prompt {
 <link rel="stylesheet" href="custom.css">
 
 </head>
+
+
 
 <body>
 <div class="reveal">
@@ -1153,31 +1155,7 @@ It is used internally by both:</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">link</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;../build/nv.d3.css&quot;</span> <span class="n">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js&quot;</span> <span class="n">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;https://raw.githubusercontent.com/nvd3-community/nvd3/gh-pages/build/nv.d3.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-
-    <span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
-        <span class="n">text</span> <span class="p">{</span>
-            <span class="n">font</span><span class="p">:</span> <span class="mi">12</span><span class="n">px</span> <span class="n">sans</span><span class="o">-</span><span class="n">serif</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">svg</span> <span class="p">{</span>
-            <span class="n">display</span><span class="p">:</span> <span class="n">block</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">html</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="c">#chart1, svg {</span>
-            <span class="n">margin</span><span class="p">:</span> <span class="mi">0</span><span class="n">px</span><span class="p">;</span>
-            <span class="n">padding</span><span class="p">:</span> <span class="mi">0</span><span class="n">px</span><span class="p">;</span>
-            <span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
-            <span class="n">height</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
-
-<span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s">&quot;chart1&quot;</span><span class="o">&gt;</span>
+<div class=" highlight hl-ipython2"><pre><span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s">&quot;chart1&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">svg</span><span class="o">&gt;&lt;/</span><span class="n">svg</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
 
@@ -1185,36 +1163,6 @@ It is used internally by both:</p>
     <span class="o">//</span> <span class="n">Wrapping</span> <span class="ow">in</span> <span class="n">nv</span><span class="o">.</span><span class="n">addGraph</span> <span class="n">allows</span> <span class="k">for</span> <span class="s">&#39;0 timeout render&#39;</span><span class="p">,</span> <span class="n">stores</span> <span class="n">rendered</span> <span class="n">charts</span> <span class="ow">in</span> <span class="n">nv</span><span class="o">.</span><span class="n">graphs</span><span class="p">,</span>
     <span class="o">//</span> <span class="ow">and</span> <span class="n">may</span> <span class="n">do</span> <span class="n">more</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">future</span><span class="o">...</span> <span class="n">it</span><span class="s">&#39;s NOT required</span>
     <span class="n">nv</span><span class="o">.</span><span class="n">addGraph</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">var</span> <span class="n">chart</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">cumulativeLineChart</span><span class="p">()</span>
-            <span class="o">.</span><span class="n">useInteractiveGuideline</span><span class="p">(</span><span class="n">true</span><span class="p">)</span>
-            <span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">})</span>
-            <span class="o">.</span><span class="n">y</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span> <span class="p">})</span>
-            <span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">d3</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">category10</span><span class="p">()</span><span class="o">.</span><span class="n">range</span><span class="p">())</span>
-            <span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">d</span><span class="o">.</span><span class="n">mean</span><span class="o">/</span><span class="mi">100</span><span class="p">;</span> <span class="p">})</span>
-            <span class="o">.</span><span class="n">duration</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
-            <span class="o">.</span><span class="n">clipVoronoi</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
-        <span class="n">chart</span><span class="o">.</span><span class="n">dispatch</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s">&#39;renderEnd&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
-            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;render complete: cumulative line with guide line&#39;</span><span class="p">);</span>
-        <span class="p">});</span>
-        <span class="n">chart</span><span class="o">.</span><span class="n">xAxis</span><span class="o">.</span><span class="n">tickFormat</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">d3</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;%m/</span><span class="si">%d</span><span class="s">/%y&#39;</span><span class="p">)(</span><span class="n">new</span> <span class="n">Date</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
-        <span class="p">});</span>
-        <span class="n">chart</span><span class="o">.</span><span class="n">yAxis</span><span class="o">.</span><span class="n">tickFormat</span><span class="p">(</span><span class="n">d3</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;,.1%&#39;</span><span class="p">));</span>
-        <span class="n">d3</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">&#39;#chart1 svg&#39;</span><span class="p">)</span>
-            <span class="o">.</span><span class="n">datum</span><span class="p">({{</span> <span class="n">data</span> <span class="o">|</span> <span class="n">json</span> <span class="o">|</span> <span class="n">safe</span> <span class="p">}})</span>
-            <span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">chart</span><span class="p">);</span>
-        <span class="o">//</span><span class="n">TODO</span><span class="p">:</span> <span class="n">Figure</span> <span class="n">out</span> <span class="n">a</span> <span class="n">good</span> <span class="n">way</span> <span class="n">to</span> <span class="n">do</span> <span class="n">this</span> <span class="n">automatically</span>
-        <span class="n">nv</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">windowResize</span><span class="p">(</span><span class="n">chart</span><span class="o">.</span><span class="n">update</span><span class="p">);</span>
-        <span class="n">chart</span><span class="o">.</span><span class="n">dispatch</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s">&#39;stateChange&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span> <span class="n">nv</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;New State:&#39;</span><span class="p">,</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">e</span><span class="p">));</span> <span class="p">});</span>
-        <span class="n">chart</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">dispatch</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s">&#39;change&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">state</span><span class="p">){</span>
-            <span class="n">nv</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;state&#39;</span><span class="p">,</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">state</span><span class="p">));</span>
-        <span class="p">});</span>
-        <span class="k">return</span> <span class="n">chart</span><span class="p">;</span>
-    <span class="p">});</span>
-    
-    
-<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
 </pre></div>
 
 </div>
@@ -1251,71 +1199,7 @@ It is used internally by both:</p>
     <span class="o">&lt;</span><span class="n">meta</span> <span class="n">http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;!</span>-- The above <span class="m">3</span> meta tags *must* come first in the head<span class="p">;</span> any other head content must come *after* these tags --&gt;
-    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;author&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;../../favicon.ico&quot;</span><span class="o">&gt;</span>
-
-    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Starter</span> <span class="n">Template</span> <span class="k">for</span> <span class="n">Bootstrap</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
-
-    <span class="o">&lt;!</span>-- Bootstrap core CSS --&gt;
-    <span class="o">&lt;</span><span class="n">link</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;../../dist/css/bootstrap.min.css&quot;</span> <span class="n">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="o">&gt;</span>
-
-    <span class="o">&lt;!</span>-- Custom styles <span class="k">for</span> this template --&gt;
-    <span class="o">&lt;</span><span class="n">link</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;starter-template.css&quot;</span> <span class="n">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="o">&gt;</span>
-
-    <span class="o">&lt;!</span>-- Just <span class="k">for</span> debugging purposes. Don<span class="err">&#39;</span>t actually copy these <span class="m">2</span> lines! --&gt;
-    <span class="o">&lt;!</span>--<span class="o">[</span><span class="k">if</span> lt IE 9<span class="o">]</span>&gt;&lt;script <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;../../assets/js/ie8-responsive-file-warning.js&quot;</span>&gt;&lt;/script&gt;&lt;!<span class="o">[</span>endif<span class="o">]</span>--&gt;
-    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;../../assets/js/ie-emulation-modes-warning.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-
-    <span class="o">&lt;!</span>-- HTML5 shim and Respond.js <span class="k">for</span> IE8 support of HTML5 elements and media queries --&gt;
-    <span class="o">&lt;!</span>--<span class="o">[</span><span class="k">if</span> lt IE 9<span class="o">]</span>&gt;
-      <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;https://oss.maxcdn.com/respond/1.4.2/respond.min.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-    <span class="o">&lt;![</span>endif<span class="o">]</span>--&gt;
-  <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
-
-  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
-
-    <span class="o">&lt;</span><span class="n">nav</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-inverse navbar-fixed-top&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;navbar-header&quot;</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="n">button</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;navbar-toggle collapsed&quot;</span> <span class="n">data</span><span class="o">-</span><span class="n">toggle</span><span class="o">=</span><span class="s">&quot;collapse&quot;</span> <span class="n">data</span><span class="o">-</span><span class="n">target</span><span class="o">=</span><span class="s">&quot;#navbar&quot;</span> <span class="n">aria</span><span class="o">-</span><span class="n">expanded</span><span class="o">=</span><span class="s">&quot;false&quot;</span> <span class="n">aria</span><span class="o">-</span><span class="n">controls</span><span class="o">=</span><span class="s">&quot;navbar&quot;</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="o">&gt;</span><span class="n">Toggle</span> <span class="n">navigation</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;icon-bar&quot;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;icon-bar&quot;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;icon-bar&quot;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
-          <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="n">a</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="o">&gt;</span><span class="n">Project</span> <span class="n">name</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
-        <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s">&quot;navbar&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;collapse navbar-collapse&quot;</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="n">ul</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;nav navbar-nav&quot;</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="n">li</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="o">&gt;</span><span class="n">Home</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;#about&quot;</span><span class="o">&gt;</span><span class="n">About</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;#contact&quot;</span><span class="o">&gt;</span><span class="n">Contact</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-          <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
-        <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;&lt;!</span>--/.nav-collapse --&gt;
-      <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="n">nav</span><span class="o">&gt;</span>
-
-    <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="o">&gt;</span>
-
-      <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;starter-template&quot;</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Bootstrap</span> <span class="n">starter</span> <span class="n">template</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="n">p</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;lead&quot;</span><span class="o">&gt;</span><span class="n">Use</span> <span class="n">this</span> <span class="n">document</span> <span class="k">as</span> <span class="n">a</span> <span class="n">way</span> <span class="n">to</span> <span class="n">quickly</span> <span class="n">start</span> <span class="nb">any</span> <span class="n">new</span> <span class="n">project</span><span class="o">.&lt;</span><span class="n">br</span><span class="o">&gt;</span> <span class="n">All</span> <span class="n">you</span> <span class="n">get</span> <span class="ow">is</span> <span class="n">this</span> <span class="n">text</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">mostly</span> <span class="n">barebones</span> <span class="n">HTML</span> <span class="n">document</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-      <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-
-    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;&lt;!</span>-- /.container --&gt;
-
-
-    <span class="o">&lt;!</span>-- Bootstrap core JavaScript
-    <span class="o">==================================================</span> <span class="o">--&gt;</span>
-    <span class="o">&lt;!</span>-- Placed at the end of the document so the pages load faster --&gt;
-    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;../../dist/js/bootstrap.min.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-    <span class="o">&lt;!</span>-- IE10 viewport hack <span class="k">for</span> Surface/desktop Windows <span class="m">8</span> bug --&gt;
-    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;../../assets/js/ie10-viewport-bug-workaround.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+    
 </pre></div>
 
 </div>
@@ -1483,9 +1367,9 @@ AddHandler fcgid-script .fcgi
 </div>
 </div>
 
-<script src="http://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/head.min.js"></script>
 
-<script src="http://cdn.jsdelivr.net/reveal.js/2.5.0/js/reveal.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/2.6.2/js/reveal.js"></script>
 
 <script>
 
@@ -1500,8 +1384,8 @@ transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/c
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
-{ src: "http://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/classList.js", condition: function() { return !document.body.classList; } },
-{ src: "http://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
+{ src: "http://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/classList.js", condition: function() { return !document.body.classList; } },
+{ src: "http://cdn.jsdelivr.net/reveal.js/2.6.2/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
 ]
 });
 </script>
@@ -1537,5 +1421,51 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
 </script>
 
 </body>
+
+
+<script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      // kgd
+      width: 1366,
+      height: 768,
+
+      theme: Reveal.getQueryHash().theme || 'default', // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+});
+
+// Add Github Link
+var link = document.createElement("a");
+link.href = "https://github.com/jakebrinkmann/2015-PUG-flask-data-vis";
+link.alt = "Fork me on GitHub!";
+var img = document.createElement("img");
+img.src = "https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67";
+img.style = "position: absolute; top: 0; right: 0; border: 0;";
+link.appendChild(img);
+
+document.body.appendChild(link);    
+
+
+</script>
+
 
 </html>

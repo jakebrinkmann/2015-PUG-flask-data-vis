@@ -4,9 +4,7 @@
 
 Python, Flask, and Web-visualizations
 
-<h2>[Talk Slides](http://jakebrinkmann.github.io/2015-PUG-flask-data-vis)</h2>
-
-Welcome, [Goddard Python User's Group](https://lists.nasa.gov/mailman/listinfo/gsfc-python-users)!  
+## [Slides](http://jakebrinkmann.github.io/2015-PUG-flask-data-vis)
 
 This is the web application we wrote for data visualization in [Python](http://python.org/) using the [Flask](http://flask.pocoo.org/) microframework.
 

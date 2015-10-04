@@ -306,7 +306,6 @@ div.output_prompt {
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>What is flask?<ul>
-<li>Flask acts as a simple web server</li>
 <li>Flask takes care of the "Web Server Gateway Interface" (WSGI)</li>
 </ul>
 </li>
@@ -322,9 +321,11 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This turns out to be the most useful part. When a user makes a request in the client, <code>flask</code> will bring you back into the python program on the server side.</p>
-<p>This means, if a user asks for a yearly average dataset... you can use <code>pandas</code> to provide the sampling, and <code>flask</code> again helps with sending the data back to the user. Anything you can do in python, you are suddenly able to interact with via the <code>flask</code> module.</p>
+<p>When a user makes a request in the client, <code>flask</code> will bring you back into the python program on the server side.</p>
+<p>If a user asks for a yearly average dataset, you can use <code>pandas</code> to provide the sampling, and <code>flask</code> again helps with sending the data back to the user.</p>
+<p>Anything you can do in python, you are suddenly able to interact with via the <code>flask</code> module.</p>
 <p>There are also <code>flask</code> add-ons, which handle even more amazing tasks, like local language translataion, thwarting hackers, and creating beautiful barebones websites in seconds.</p>
+<p>Let's get started!</p>
 
 </div>
 </div>
@@ -337,16 +338,10 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Follow-Along">Follow Along<a class="anchor-link" href="#Follow-Along">&#182;</a></h1>
+<h1 id="Follow-Along">Follow Along<a class="anchor-link" href="#Follow-Along">&#182;</a></h1><p>I've tried to orgainze all the codes here:</p>
+
 <pre><code>git clone https://github.com/jakebrinkmann/2015-PUG-flask-data-vis.git 
-cd 2015-PUG-flask-data-vis
-git checkout version-0.1
-
-</code></pre>
-<p>Each branch has tags associated to help guide the developement</p>
-
-<pre><code>git tags -l
-git checkout tags/v0.1.0</code></pre>
+cd 2015-PUG-flask-data-vis</code></pre>
 
 </div>
 </div>
@@ -367,19 +362,23 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div><div style=display:none>
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<h1 id="STARTUP-=====================================">STARTUP =====================================<a class="anchor-link" href="#STARTUP-=====================================">&#182;</a></h1>
+<h1 id="Assumptions">Assumptions<a class="anchor-link" href="#Assumptions">&#182;</a></h1><ul>
+<li>You are using a UNIX-based OS</li>
+<li>You have not used flask before</li>
+<li>You have little or no web-developer experience</li>
+</ul>
+<p>If you have used flask before, or know web development... let's make the next talk together!</p>
+
 </div>
 </div>
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     
@@ -388,11 +387,36 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Flask-Hello-World">Flask Hello World<a class="anchor-link" href="#Flask-Hello-World">&#182;</a></h1><p>Flask can be straight to the point</p>
+<hr>
+<h1 id="Getting-Started">Getting Started<a class="anchor-link" href="#Getting-Started">&#182;</a></h1>
+<pre><code>git checkout version-0.1
+
+</code></pre>
+<ul>
+<li>Hello World</li>
+<li>URL Routing</li>
+<li>Templates</li>
+</ul>
+<hr>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="9">
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Flask-Hello-World">Flask Hello World<a class="anchor-link" href="#Flask-Hello-World">&#182;</a></h1>
+<pre><code>git checkout tags/v0.1.0
+
+</code></pre>
+<p>Flask is quick to get running</p>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="10">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -401,7 +425,7 @@ git checkout tags/v0.1.0</code></pre>
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span> <span class="c"># WSGI application</span>
 
 <span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
@@ -416,7 +440,30 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 
 </div>
+    </div><div class="fragment" data-fragment-index="11">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Congratulations, your first web app! It will be running at <a href="http://localhost:5000">http://localhost:5000</a> (only accessible by your machine)</p>
+
+</div>
+</div>
+</div>
     </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Flask can generate HTML from within Python</p>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="13">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -428,8 +475,8 @@ git checkout tags/v0.1.0</code></pre>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 <span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">show_ribbon</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s">&#39;&lt;a href=&quot;https://github.com/jakebrinkmann/2015-PUG-flask-data-vis&quot;&gt;&lt;img style=&quot;position: absolute; top: 0; right: 0; border: 0;&quot; src=&quot;https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67&quot; alt=&quot;Fork me on GitHub&quot; data-canonical-src=&quot;https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png&quot;&gt;&lt;/a&gt;&#39;</span>
+<span class="k">def</span> <span class="nf">show_html</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&#39;&lt;h1&gt;Big heading&lt;/h1&gt;&lt;p&gt;And some &lt;b&gt;paragraph&lt;/b&gt; text&lt;/p&gt;&#39;</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -439,7 +486,8 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 </div>
 
-</div></section><section>
+</div>
+    </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -447,11 +495,14 @@ git checkout tags/v0.1.0</code></pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Debugging">Debugging<a class="anchor-link" href="#Debugging">&#182;</a></h1>
-<pre><code>git checkout version-0.2</code></pre>
+<pre><code>git checkout tags/v0.1.2
+
+</code></pre>
+<p>If you enable debug support the server will reload itself on code changes, and it will also provide you with a helpful debugger if things go wrong</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="12">
+</div><div class="fragment" data-fragment-index="15">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -475,21 +526,21 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 
 </div>
-    </div><div style=display:none>
+    </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<h1 id="BASICS-======================================">BASICS ======================================<a class="anchor-link" href="#BASICS-======================================">&#182;</a></h1>
+<h1 id="Warning"><span style="color: red">Warning</span><a class="anchor-link" href="#Warning">&#182;</a></h1><p>The interactive debugger allows the execution of arbitrary code.<br>
+This makes it a major security risk and therefore it must never be used on production machines.</p>
+
+<pre><code>app.run(debug=os.environ('DEBUG', false))</code></pre>
+
 </div>
 </div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -497,14 +548,14 @@ git checkout tags/v0.1.0</code></pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Route-Handling">Route Handling<a class="anchor-link" href="#Route-Handling">&#182;</a></h1>
-<pre><code>git checkout version-0.3
+<pre><code>git checkout tags/v0.2.0
 
 </code></pre>
 <p>Flask can also handle more complex redirects, and request routes</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="15">
+</div><div class="fragment" data-fragment-index="18">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -513,14 +564,14 @@ git checkout tags/v0.1.0</code></pre>
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">url_for</span>
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/ribbon&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">show_ribbon</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s">&#39;&lt;a href=&quot;https://github.com/jakebrinkmann/2015-PUG-flask-data-vis&quot;&gt;&lt;img style=&quot;position: absolute; top: 0; right: 0; border: 0;&quot; src=&quot;https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67&quot; alt=&quot;Fork me on GitHub&quot; data-canonical-src=&quot;https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png&quot;&gt;&lt;/a&gt;&#39;</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/proj&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">projects</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&#39;&lt;h1&gt;Project Page&lt;/h1&gt;&lt;p&gt;&lt;ul&gt;&lt;li&gt;PUG Data Visualization&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&#39;</span>
 
 
 <span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s">&#39;&lt;a href=&quot;&#39;</span><span class="o">+</span> <span class="n">url_for</span><span class="p">(</span><span class="s">&#39;show_ribbon&#39;</span><span class="p">)</span> <span class="o">+</span><span class="s">&#39;&quot;&gt;Click Here&lt;/a&gt;&#39;</span>
+    <span class="k">return</span> <span class="s">&#39;&lt;a href=&quot;&#39;</span><span class="o">+</span> <span class="n">url_for</span><span class="p">(</span><span class="s">&#39;projects&#39;</span><span class="p">)</span> <span class="o">+</span><span class="s">&#39;&quot;&gt;Projects Page&lt;/a&gt;&#39;</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -539,11 +590,14 @@ git checkout tags/v0.1.0</code></pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="App-Layout">App Layout<a class="anchor-link" href="#App-Layout">&#182;</a></h1>
-<pre><code>git checkout version-0.4</code></pre>
+<pre><code>git checkout tags/v0.2.1
+
+</code></pre>
+<p>It is important to seperate the <em>presentation</em> from the <em>logic</em></p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="17">
+</div><div class="fragment" data-fragment-index="20">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -564,7 +618,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="18">
+    </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -576,8 +630,7 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="18">
+</div><div class="fragment" data-fragment-index="20">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -595,7 +648,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="20">
+        </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -607,8 +660,7 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="20">
+</div><div class="fragment" data-fragment-index="20">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -628,7 +680,7 @@ git checkout tags/v0.1.0</code></pre>
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="22">
+        </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -640,8 +692,7 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="22">
+</div><div class="fragment" data-fragment-index="20">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -670,7 +721,7 @@ git checkout tags/v0.1.0</code></pre>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="25">
+</div><div class="fragment" data-fragment-index="28">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -725,12 +776,13 @@ It is used internally by both:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Control statements</p>
 
 <pre><code>app/templates/index.html</code></pre>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="25">
+</div><div class="fragment" data-fragment-index="28">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -739,7 +791,11 @@ It is used internally by both:</p>
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">title</span> <span class="p">}}</span> <span class="o">-</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">title</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">title</span> <span class="p">}}</span> <span class="o">-</span> <span class="n">PUG</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="mi">2015</span><span class="o">-</span><span class="n">PUG</span><span class="o">-</span><span class="n">Data</span><span class="o">-</span><span class="n">Vis</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
   <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hello</span><span class="p">,</span> <span class="p">{{</span> <span class="n">user</span><span class="o">.</span><span class="n">nickname</span> <span class="p">}}</span><span class="o">!</span>&lt;/h1&gt;
@@ -752,7 +808,7 @@ It is used internally by both:</p>
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="29">
+        </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -764,8 +820,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="29">
+</div><div class="fragment" data-fragment-index="28">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -778,7 +833,7 @@ It is used internally by both:</p>
 <span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
 <span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/index&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;nickname&#39;</span><span class="p">:</span> <span class="s">&#39;Dr. Robert&#39;</span><span class="p">}</span>  <span class="c"># fake user</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;nickname&#39;</span><span class="p">:</span> <span class="s">&#39;Dr. Robert&#39;</span><span class="p">}</span> 
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span>
                            <span class="n">title</span><span class="o">=</span><span class="s">&#39;Home&#39;</span><span class="p">,</span>
                            <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
@@ -789,102 +844,7 @@ It is used internally by both:</p>
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="31">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Control statements</p>
-
-<pre><code>app/templates/index.html</code></pre>
-
-</div>
-</div>
-</div>
-    </div><div class="fragment" data-fragment-index="31">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">title</span> <span class="o">%</span><span class="p">}</span>
-    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">title</span> <span class="p">}}</span> <span class="o">-</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
-    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Welcome</span> <span class="n">to</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
-  <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hello</span><span class="p">,</span> <span class="p">{{</span> <span class="n">user</span><span class="o">.</span><span class="n">nickname</span> <span class="p">}}</span><span class="o">!</span>&lt;/h1&gt;
-  <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-        </div><div class="fragment" data-fragment-index="33">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Loops, too</p>
-
-<pre><code>app/templates/index.html</code></pre>
-
-</div>
-</div>
-</div>
-    </div><div class="fragment" data-fragment-index="33">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">title</span> <span class="o">%</span><span class="p">}</span>
-    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">title</span> <span class="p">}}</span> <span class="o">-</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
-    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Welcome</span> <span class="n">to</span> <span class="n">microblog</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
-  <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hi</span><span class="p">,</span> <span class="p">{{</span> <span class="n">user</span><span class="o">.</span><span class="n">nickname</span> <span class="p">}}</span><span class="o">!</span>&lt;/h1&gt;
-    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span> <span class="o">%</span><span class="p">}</span>
-    <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">nickname</span> <span class="p">}}</span> <span class="n">says</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">body</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-  <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-        </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<h1 id="ADVANCED-=====================================">ADVANCED =====================================<a class="anchor-link" href="#ADVANCED-=====================================">&#182;</a></h1>
-</div>
-</div>
-</div>
-    </div></section>
+        </div></section>
     </section><section>
     <section>
     
@@ -893,20 +853,44 @@ It is used internally by both:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Inputs-&amp;-Forms">Inputs &amp; Forms<a class="anchor-link" href="#Inputs-&amp;-Forms">&#182;</a></h1>
-<pre><code>git checkout version-0.6</code></pre>
+<hr>
+<h1 id="User-Inputs">User Inputs<a class="anchor-link" href="#User-Inputs">&#182;</a></h1>
+<pre><code>git checkout version-0.2
+
+</code></pre>
+<ul>
+<li>URL Variable Inputs</li>
+<li>Forms (Flask-WTForms)</li>
+</ul>
+<hr>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="37">
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Add variable parts to a URL.</p>
-<p>Optionall converters exist:</p>
+<p><img src="imgs/click_stream.png" style="align: center"></img></p>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="URL-Variables">URL Variables<a class="anchor-link" href="#URL-Variables">&#182;</a></h1>
+<pre><code>git checkout version-0.6
+
+
+</code></pre>
+<p>Add variable parts to a URL.<br>
+Optionall converters exist:</p>
 <ul>
 <li>int -    accepts integers</li>
 <li>float - like int but for floating point values</li>
@@ -915,8 +899,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="38">
+</div><div class="fragment" data-fragment-index="37">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -940,6 +923,16 @@ It is used internally by both:</p>
 
 </div>
     </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Forms">Forms<a class="anchor-link" href="#Forms">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1019,7 +1012,9 @@ It is used internally by both:</p>
 </div>
 
 </div>
-        </div><div style=display:none>
+        </div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1027,11 +1022,15 @@ It is used internally by both:</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
+<h1 id="Data-Display">Data Display<a class="anchor-link" href="#Data-Display">&#182;</a></h1><ul>
+<li>Static (matplotlib, ggplot, seaborn)</li>
+<li>Interactive (bokeh, mpld3, plotly)</li>
+</ul>
+<hr>
 
 </div>
 </div>
-</div>
-    </div></section><section>
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1046,7 +1045,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="45">
+</div></section><section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1082,8 +1081,7 @@ It is used internally by both:</p>
 </div>
 </div>
 
-</div>
-    </div></section><section>
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1098,7 +1096,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="47">
+</div></section><section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1124,8 +1122,7 @@ It is used internally by both:</p>
 </div>
 </div>
 
-</div>
-    </div><div class="fragment" data-fragment-index="48">
+</div></section><section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1152,8 +1149,9 @@ It is used internally by both:</p>
 </div>
 </div>
 
-</div>
-    </div><div style=display:none>
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1161,13 +1159,17 @@ It is used internally by both:</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h1 id="MASTERY-=====================================">MASTERY =====================================<a class="anchor-link" href="#MASTERY-=====================================">&#182;</a></h1>
+<h1 id="Upgraded-Interface">Upgraded Interface<a class="anchor-link" href="#Upgraded-Interface">&#182;</a></h1><ul>
+<li>Layouts (Bootstrap, Foundation)</li>
+<li>Document Object Model (jQuery)</li>
+<li>Call backs (AJAX, Databases)</li>
+<li>Custom visualizations (d3.js, nvd3)</li>
+</ul>
+<hr>
+
 </div>
 </div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1260,7 +1262,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="55">
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1272,8 +1274,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="56">
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1286,8 +1287,7 @@ It is used internally by both:</p>
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="57">
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1305,8 +1305,7 @@ AddHandler fcgid-script .fcgi
 
 </div>
 </div>
-</div>
-    </div><div style=display:none>
+</div><div style=display:none>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1331,7 +1330,7 @@ AddHandler fcgid-script .fcgi
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="60">
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1346,8 +1345,7 @@ AddHandler fcgid-script .fcgi
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="61">
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1366,8 +1364,7 @@ AddHandler fcgid-script .fcgi
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="62">
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1382,8 +1379,7 @@ AddHandler fcgid-script .fcgi
 
 </div>
 </div>
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     

@@ -1,7 +1,7 @@
 /* Overrides of notebook CSS for static HTML export */
 .reveal {
 font-size: 30px;
-overflow-y: auto;
+overflow-y: hidden;
 overflow-x: hidden;
 }
 .reveal h1,

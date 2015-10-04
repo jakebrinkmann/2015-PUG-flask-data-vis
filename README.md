@@ -1,14 +1,14 @@
 # 2015 PUG - Flask Data Visualization
+## Goddard Python Users Group Meeting - Oct. 6 - Building 34, Room W120B, 10:00AM - 11:00AM
 
 Python, Flask, and Web-visualizations
 
-# GSFC PUG - OCT 2015
+## [Talk Slides](http://jakebrinkmann.github.io/2015-PUG-flask-data-vis)
 
 Welcome, [Goddard Python User's Group](https://lists.nasa.gov/mailman/listinfo/gsfc-python-users)!  
 
-This guide outlines the steps we took in our **October 6th, 2015 Meetup** to write a web application, for data visualization, in [Python](http://python.org/) using the [Flask](http://flask.pocoo.org/) microframework.
+This is the web application we wrote for data visualization in [Python](http://python.org/) using the [Flask](http://flask.pocoo.org/) microframework.
 
-To follow along, please find my <h3>[slides here](http://jakebrinkmann.github.io/2015-PUG-flask-data-vis)</h3>.  
 A live version of the final website: [http://jakebrinkmann.pythonanywhere.com/](http://jakebrinkmann.pythonanywhere.com/)
 
 ![Screenshot](Screenshot.png)

@@ -3,8 +3,8 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def show_html():
-    return '<h1>Big heading</h1><p>And some <b>paragraph</b> text</p>'
+def create_error():
+    return 'a %s' % a
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

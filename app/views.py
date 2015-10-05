@@ -1,15 +1,19 @@
-from flask import render_template
+from flask import render_template, request
+from flask_wtf import Form
+from wtforms.fields.html5 import DecimalRangeField
 from app import app
 
-@app.route('/post/<int:post_id>')
-def show_post(post_id):
-    # show the post with the given id, the id is an integer
-    return 'Post %d' % post_id
+class MyForm(Form):
+    my_slider = DecimalRangeField('Slider')
 
-@app.route('/<username>')
-@app.route('/index/<username>')
-def index(username):
-    user = {'nickname': username}
+@app.route('/', methods=('GET', 'POST'))
+def index():
+    form = MyForm()
+    user = {'nickname': 'Dr. Robert'}
+    if request.method == 'POST':
+        value = request.form['my_slider']
+        user['nickname'] = value
     return render_template('index.html',
                            title='Home',
-                           user=user)
+                           user=user,
+                           form=form)

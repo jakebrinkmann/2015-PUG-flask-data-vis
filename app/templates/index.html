@@ -1,16 +1,16 @@
-<html>
-  <head>
-    {% if title %}
-    <title>{{ title }} - PUG</title>
-    {% else %}
-    <title>2015-PUG-Data-Vis</title>
-    {% endif %}
-  </head>
-  <body>
-      <form method="POST" action="/">
-          <p>{{ form.my_slider.label }}: {{ form.my_slider }}</p>
-          <input type="submit" value="Go">
-      </form>
-      <img src="{{ url_for('plot', mag=mag) }}"></img>
-  </body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+
+<div id="sidebar">
+  <span>Select plot type</span>
+  <form method="POST" action="/">
+      <p>{{ form.my_slider.label }}: {{ form.my_slider }}</p>
+      <input type="submit" value="Go">
+  </form>
+</div>
+
+<div id="container" style="width:70%; height:400px;">
+  <img src="{{ url_for('plot', mag=mag) }}"></img>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% if title %}
+  <title>{{ title }} - PUG</title>
+  {% else %}
+  <title>2015-PUG-Data-Vis</title>
+  {% endif %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">2015-PUG-Data-Vis</h1>
+      <strong><nav>
+        <ul class="menu">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+        </ul>
+      </nav></strong>
+    </div>
+  <a href="https://github.com/jakebrinkmann/2015-PUG-flask-data-vis"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"></a>
+  </header>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+</html>

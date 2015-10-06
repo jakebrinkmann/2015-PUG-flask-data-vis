@@ -2,7 +2,7 @@
 {% block content %}
 
 <div id="sidebar">
-  <span>Select plot type</span>
+  <span>Plotting Inputs</span>
   <form method="POST" action="/">
       <p>{{ form.my_slider.label }}: {{ form.my_slider }}</p>
       <input type="submit" value="Go">
@@ -10,7 +10,7 @@
 </div>
 
 <div id="container" style="width:70%; height:400px;">
-  <img src="{{ url_for('plot', mag=mag) }}"></img>
+  {{ figure | safe }}
 </div>
 
 {% endblock %}

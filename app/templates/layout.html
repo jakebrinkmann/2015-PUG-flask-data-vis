@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  {% block head %}
   {% if title %}
   <title>{{ title }} - PUG</title>
   {% else %}
   <title>2015-PUG-Data-Vis</title>
   {% endif %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  {% endblock %}
 </head>
 <body>
   <header>

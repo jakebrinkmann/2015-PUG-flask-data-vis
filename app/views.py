@@ -1,30 +1,34 @@
 from flask import render_template, request, make_response
 from flask_wtf import Form
 from wtforms.fields.html5 import DecimalRangeField
-import matplotlib.pyplot as plt
-import mpld3
-from mpld3 import plugins
+from wtforms import RadioField
+from bokeh.embed import components
+from bokeh.plotting import figure
 import random
 from app import app
 
 class MyForm(Form):
-    my_slider = DecimalRangeField('Slider')
+    my_slider = DecimalRangeField('Mag')
+    my_radio = RadioField('Color', choices=[('#c51b8a','Pink'),('#5ab4ac','Teal')])
 
-def draw_plot(mag):
-    fig, ax = plt.subplots()
+def draw_plot(mag, color):
     xs = range(100)
-    ys = [mag * random.randint(1, 50) for x in xs]
-    ax.scatter(xs, ys)
-    return mpld3.fig_to_html(fig)
+    ys = [(mag + x) **2 + random.randint(1, 50) for x in xs]
+    fig = figure(title="Polynomial", plot_width=500, plot_height=400)
+    fig.line(xs, ys, color=color, line_width=2)
+    return fig
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
     form = MyForm()
     magnitude = 50
+    color = '#67a9cf'
     if request.method == 'POST':
         magnitude = float(request.form['my_slider'])
-    fig = draw_plot(magnitude)
+        color = request.form['my_radio']
+    fig = draw_plot(magnitude, color)
+    script, div = components(fig)
     return render_template('index.html',
                            title='Home',
                            form=form,
-                           figure=fig)
+                           div=div, script=script)

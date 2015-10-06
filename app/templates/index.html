@@ -1,16 +1,30 @@
 {% extends "layout.html" %}
+{% block head %}
+{{ super() }}
+  <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.9.1.min.css" type="text/css" />
+  <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.9.1.min.js"></script>
+{% endblock %}
+
 {% block content %}
 
 <div id="sidebar">
   <span>Plotting Inputs</span>
   <form method="POST" action="/">
+      {{form.hidden_tag()}}
       <p>{{ form.my_slider.label }}: {{ form.my_slider }}</p>
+      <p>{% for subfield in form.my_radio %}
+          <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+          </tr>
+      {% endfor %}</p>
       <input type="submit" value="Go">
   </form>
 </div>
 
 <div id="container" style="width:70%; height:400px;">
-  {{ figure | safe }}
+  {{ div | safe }}
+  {{ script | safe }}
 </div>
 
 {% endblock %}

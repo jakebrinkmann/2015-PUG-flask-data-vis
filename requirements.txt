@@ -1,7 +1,4 @@
--f /usr/share/pip-wheels
-backports.ssl-match-hostname==3.4.0.2
 bokeh==0.10.0
-certifi==2015.9.6.2
 Flask==0.10.1
 Flask-WTF==0.12
 itsdangerous==0.24
